@@ -29,7 +29,7 @@ class Observer{
             configurable : false,
             //取值方法
             get () {
-                //真对watcher创建时，直接完成阿布订阅的添加
+                //真对watcher创建时，直接完成发布订阅的添加
                 var watcher = Dep.target;
                 watcher && dep.addSub( watcher )
                 return val;
