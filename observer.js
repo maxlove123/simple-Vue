@@ -11,7 +11,7 @@ class Observer{
             return 
         }else{
             
-            var keys = Object.keys(data)
+            var keys = Object.keys(data) //将传递过来的data属性解析出来key，传递给defineReactive
             keys.forEach((key)=>{
                 this.defineReactive(data,key,data[key])
             })
@@ -22,7 +22,7 @@ class Observer{
     }
     defineReactive (obj,key,val) {
         var dep = new Dep()
-        Object.defineProperty(obj,key,{
+        Object.defineProperty(obj,key,{  //根据传递过来的属性obj和key，给obj添加属性，当属性值发生改变时，其他属性值也跟随发生改变
             //是否可遍历
             enumerable : true,
             //是否可配置
@@ -36,7 +36,7 @@ class Observer{
             },
             //修改值
             set (newValue) {
-                val = newValue;
+                val = newValue; //将vm[name]属性获取到的值传递给set方法，设置val的值为vm[name]获取到的值
                 
                 dep.notify()
             }
