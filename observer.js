@@ -52,7 +52,7 @@ class Dep{
         this.subs = [];
     }
     //添加订阅
-    addSub (sub) {//骑士就是watcher对象
+    addSub (sub) {//其实就是watcher对象
         this.subs.push(sub)
     }
     //集体通知
